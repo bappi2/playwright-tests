@@ -1,7 +1,17 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        type: choice
+        description: "Select the enviornment" 
+        default: dev
+        options: 
+            - dev 
+            - integration
+            - production
+
 jobs:
   test:
     timeout-minutes: 60
